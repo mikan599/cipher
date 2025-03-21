@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>暗号解読チャレンジ</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+        input { padding: 8px; margin: 10px; }
+        button { padding: 8px 15px; }
+    </style>
+</head>
+<body>
+    <h1>暗号文を解読せよ！</h1>
+    <p>暗号: <strong>Uryyb Jbeyq!</strong></p>
+    <input type="text" id="answer" placeholder="答えを入力">
+    <button onclick="checkAnswer()">送信</button>
+    <p id="result"></p>
+
+    <script>
+        function checkAnswer() {
+            const correctAnswer = "Hello World";  // 正解
+            const userAnswer = document.getElementById("answer").value;
+            const result = document.getElementById("result");
+
+            if (userAnswer === correctAnswer) {
+                result.textContent = "正解！🎉";
+                result.style.color = "green";
+            } else {
+                result.textContent = "違います❌";
+                result.style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>
