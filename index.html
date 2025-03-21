@@ -4,38 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>暗号解読チャレンジ</title>
+    <link rel="stylesheet" href="style.css"> <!-- 外部CSSファイルをリンク -->
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
-        input { padding: 8px; margin: 10px; }
-        button { padding: 8px 15px; }
+        /* 四角形のスタイル */
+        .square {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+        }
+
+        .square1 {
+            background-color: #96ec8f;
+        }
+
+        .square2 {
+            background-color: #6290e6;
+        }
+
+        .square3 {
+            background-color: #947900;
+        }
     </style>
 </head>
 <body>
-    <h1>暗号文を解読せよ！</h1>
-    <p>暗号: あごてすぃははぽ、ぉねづべあそ、せきすそぼちぶがすねぱね。
-    ぉねづぼごれうねぼぽ、れげびぅすぃぶごらそぼ、べらきすげゆひせふねごぃっめづげろっせふぐぅ。
-    ははぼちせぁごぽにちふぽへそ、れげびぅぶごちごぼづぃそふぐぅ。ち
-    きりごっうぴ、にごどせべぽげい、ゆきもへろっせぼぴぃぼてんごづぁそべへい、にぼはふひれがゐぃぱぴ、
-    <strong>ぉねづぶげごちがゐごたね</strong>。</p>
+    <h1>この人は誰？</h1>
     
+    <!-- 色付き四角形を表示 -->
+    <div class="square square1"></div>
+    <div class="square square2"></div>
+    <div class="square square3"></div>
+
     <input type="text" id="answer" placeholder="答えを入力">
     <button onclick="checkAnswer()">送信</button>
     <p id="result"></p>
 
     <script>
         function checkAnswer() {
-            const correctAnswer = "わたしというこをもうけた";  // 正解
-            const userAnswer = document.getElementById("answer").value;
-            const result = document.getElementById("result");
+            const correctAnswer = "野獣先輩";  // 正解
+            const userAnswer = document.getElementById("answer").value.trim();  // ユーザーの入力
+        
+            const resultElement = document.getElementById("result");
 
+            // 結果表示を表示
             if (userAnswer === correctAnswer) {
-                result.textContent = "正解！🎉";
-                result.style.color = "green";
+                resultElement.textContent = "正解です！";
+                resultElement.style.color = "green";  // 正解なら緑色
             } else {
-                result.textContent = "違います❌";
-                result.style.color = "red";
+                resultElement.textContent = "不正解です。もう一度試してください。";
+                resultElement.style.color = "red";  // 不正解なら赤色
             }
+
+            // 結果を表示する
+            resultElement.style.display = "block";  // 結果ボックスを表示
         }
     </script>
+
 </body>
 </html>
